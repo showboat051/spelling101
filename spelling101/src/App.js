@@ -23,6 +23,7 @@ class App extends Component {
       <div>
         {this.state.loading || !this.state.word ? (
         <div>loading...</div>) : <div>{this.state.word.meta.id}</div>}
+        <Form />
       </div>
     );
   }
