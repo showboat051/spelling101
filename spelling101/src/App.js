@@ -15,14 +15,15 @@ class App extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({word: data[0], loading: false });
-    console.log(data[0].meta);
+    console.log(data[0]);
+    console.log(this.state.word.meta.def)
   }
   
   render() {
     return (
       <div>
         {this.state.loading || !this.state.word ? (
-        <div>loading...</div>) : <div>{this.state.word.meta.id}</div>}
+        <div>loading...</div>) : <div>{this.state.word.meta.id} is a {this.state.word.shortdef}</div>}
         <Form />
       </div>
     );
