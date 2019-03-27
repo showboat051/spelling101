@@ -7,7 +7,7 @@ class App extends Component {
   
   state = {
     loading: true,
-    word: null,
+    word: [],
   };
  
  async componentDidMount () {
@@ -16,14 +16,15 @@ class App extends Component {
     const data = await response.json();
     this.setState({word: data[0], loading: false });
     console.log(data[0]);
-    console.log(this.state.word.meta.def)
+    console.log(data[0]);
   }
   
   render() {
     return (
       <div>
+        <Home />
         {this.state.loading || !this.state.word ? (
-        <div>loading...</div>) : <div>{this.state.word.meta.id} is a {this.state.word.shortdef}</div>}
+        <div>loading...</div>) : <div>{this.state.word.meta.id} is  {this.state.word.shortdef}</div>}
         <Form />
       </div>
     );
