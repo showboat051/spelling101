@@ -2,12 +2,16 @@ import React from 'react';
 
 class Form extends React.Component {
 
+buttonClicked(e) {
+    e.preventDefault()
+    console.log('it works')
+}
 
 render () {
     return(
-        <form onSubmit = {this.props.getWord}>
+        <form>
             <input type = "text" name = "word" placeholder = "Type your word here"/>
-            <button>WORD!</button>
+            <button onClick = {this.buttonClicked} >WORD!</button>
         </form>
     );
 }
