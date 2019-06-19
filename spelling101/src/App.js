@@ -12,11 +12,11 @@ class App extends Component {
   };
  
  async componentDidMount () {
-    const url = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/test?key=49100cd7-ffd4-4401-a19c-f3d89af225bb';
+    const url = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${}?key=49100cd7-ffd4-4401-a19c-f3d89af225bb';
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({word: data, loading: false });
-    console.log(data[0].meta.id.target);
+    //this.setState({word: data, loading: false });
+    console.log(data[0].meta.id);
     console.log(data[1]);
   }
   
