@@ -16,14 +16,12 @@ class App extends Component {
     
   
 //   // OLD WAY OF CALLING THE API
-//   // const url = `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${input}?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`;
+  const url = `https://dictionaryapi.com/api/v3/references/thesaurus/json/test?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`;
     
-//   // const response = await fetch(url);
-//   //   const data = await response.json();
-//     //this.setState({input: data, loading: false });
+  const response = await fetch(url);
+    const data = await response.json();
+    this.setState({input: data, loading: false });
   
-  const api_call = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`);
-  const data = await api_call.json(); 
 
     console.log(data[0]);
     console.log(data[1]);
@@ -35,16 +33,26 @@ class App extends Component {
 
   
   render() {
-    return (
-      <div>
-        <Home />
-        <WordBank />
-        {/* {this.state.loading || !this.state.word ? 
-        (<div>loading...</div>) : <div>{this.state.word.meta.id} is  {this.state.word.shortdef}</div>} */}
-        <Form />
-      </div>
-    );
+
+    var { loading, data} = this.state;
+      if (loading) {
+        return(
+          <div>Sorry, still loading</div>
+        )
+      }
+
+      else {
+
+        return (
+          <div> 
+            <Home />
+            <WordBank />
+            {/* {this.state.loading || !this.state.word ? 
+            (<div>loading...</div>) : <div>{this.state.word.meta.id} is  {this.state.word.shortdef}</div>} */}
+            <Form />
+          </div>
+        );
   }
-}
+}}
 
 export default App;
