@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Form from './components/Form';
-import WordBank from './components/WordBank/WordBank';
+// import WordBank from './components/WordBank/WordBank';
 
 class App extends Component {
   
@@ -34,25 +34,20 @@ class App extends Component {
   
   render() {
 
-    var { loading, data} = this.state;
-      if (loading) {
-        return(
-          <div>Sorry, still loading</div>
-        )
-      }
 
-      else {
+      
+        var someData = this.state.data;
 
         return (
           <div> 
             <Home />
-            <WordBank />
             {/* {this.state.loading || !this.state.word ? 
             (<div>loading...</div>) : <div>{this.state.word.meta.id} is  {this.state.word.shortdef}</div>} */}
             <Form />
+            <h1>{someData}</h1>
           </div>
         );
   }
-}}
+}
 
 export default App;
