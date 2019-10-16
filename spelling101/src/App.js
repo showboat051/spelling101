@@ -8,30 +8,25 @@ class App extends Component {
   
   state = {
     loading: true,
-    input: [],
+    word: null,
   };
  
-                                                    //OLD LIFECYCLE FUNCTION
+
+      //*********************API CALL*********** */
+
  async componentDidMount () {
     
   
-//   // OLD WAY OF CALLING THE API
-  const url = `https://dictionaryapi.com/api/v3/references/thesaurus/json/test?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`;
-    
-  const response = await fetch(url);
-    const data = await response.json();
-    this.setState({input: data, loading: false });
-  
+// // OLD WAY OF CALLING THE API
+  // const url = `https://dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`;
 
-    console.log(data[0]);
+  const url = `https://dictionaryapi.com/api/v3/references/thesaurus/json/test?key=49100cd7-ffd4-4401-a19c-f3d89af225bb`;
+ const response = await fetch(url);
+    const data = await response.json();
+    this.setState({word: data, loading: false });
+    console.log(data[0].meta.id);
     console.log(data[1]);
   }
-
-
-
- 
-
-  
   render() {
 
 
@@ -44,7 +39,8 @@ class App extends Component {
             {/* {this.state.loading || !this.state.word ? 
             (<div>loading...</div>) : <div>{this.state.word.meta.id} is  {this.state.word.shortdef}</div>} */}
             <Form />
-            <h1>{someData}</h1>
+            <h1>Word:{someData}</h1>
+            <h2>Defintion:{this.state.data}</h2>
           </div>
         );
   }

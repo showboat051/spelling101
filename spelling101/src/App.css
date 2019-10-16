@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+#title{
+  color: red
+}
+
+.display{
+  background-color: aquamarine;
+}
