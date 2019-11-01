@@ -8,7 +8,8 @@ class App extends Component {
   
   state = {
     loading: true,
-    word: null,
+    // holds response we get back from the API
+    wordArray: [],
   };
  
 
@@ -26,11 +27,17 @@ class App extends Component {
     this.setState({word: data, loading: false });
     console.log(data[0].meta.id);
     console.log(data[1]);
+    console.log(data);
   }
+
+addWord = (wordDef) => {
+this.setState (prevState => ({
+wordArray : [prevState.wordArray, wordDef]
+
+}));
+}
+
   render() {
-
-
-      
         var someData = this.state.data;
 
         return (
